@@ -52,11 +52,11 @@ func SaveUrlMapping(shortUrl string, originalUrl string, userId string) {
 
 }
 
-// RetrieveInitialUrl retrieves the original URL from the Redis cache, given the shortened URL
-func RetrieveInitialUrl(shortUrl string) string {
+// InitialUrl retrieves the original URL from the Redis cache, given the shortened URL
+func InitialUrl(shortUrl string) string {
 	result, err := storeService.redisClient.Get(ctx, shortUrl).Result()
 	if err != nil {
-		panic(fmt.Sprintf("Failed RetrieveInitialUrl url | Error: %v - shortUrl: %s\n", err, shortUrl))
+		panic(fmt.Sprintf("Failed InitialUrl url | Error: %v - shortUrl: %s\n", err, shortUrl))
 	}
 	return result
 }
