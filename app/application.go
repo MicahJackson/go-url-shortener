@@ -12,7 +12,6 @@ import (
 )
 
 var (
-	port      = os.Getenv("LOCAL_PORT")
 	ginRouter = gin.Default()
 )
 
