@@ -6,3 +6,9 @@ redis-bg-stop:
 
 redis-bg-status:
 	brew services info redis
+
+build:
+	docker build -t my-url-shortener .
+
+prune:
+	docker system prune -af
