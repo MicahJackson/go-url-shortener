@@ -8,7 +8,7 @@ import (
 func MapRoutes(router *gin.Engine) {
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "Welcome to the URL Shortener API",
+			"message": "Wussup homie.",
 		})
 	})
 

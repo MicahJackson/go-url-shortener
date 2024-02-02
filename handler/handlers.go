@@ -39,6 +39,6 @@ func RedirectShortUrl(c *gin.Context) {
 		return
 	}
 
-	initialUrl := store.InitialUrl(shortUrl)
-	c.Redirect(302, initialUrl)
+	longUrl := store.LongUrl(shortUrl)
+	c.Redirect(302, longUrl)
 }

@@ -15,7 +15,7 @@ var (
 	ginRouter = gin.Default()
 )
 
-func StartApplication() {
+func RunApplication() {
 	loadEnvironmentVariables()
 
 	MapRoutes(ginRouter)

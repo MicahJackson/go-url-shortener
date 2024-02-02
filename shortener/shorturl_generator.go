@@ -26,7 +26,7 @@ func base58Encoded(bytes []byte) string {
 }
 
 // Algorithm to generate short link
-// - Hashing  initialUrl + userId url with sha256.  Here userId is added to prevent providing similar shortened urls to separate users in case they want to shorten exact same link, its a design decision, so some implementations do this differently.
+// - Hashing  LongUrl + userId url with sha256.  Here userId is added to prevent providing similar shortened urls to separate users in case they want to shorten exact same link, its a design decision, so some implementations do this differently.
 // - Derive a big integer number from the hash bytes generated during the hasing.
 // - Finally apply base58  on the derived big integer value and pick the first 8 characters
 func GenerateShortLink(initialLink string, userId string) string {
