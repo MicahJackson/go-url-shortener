@@ -12,18 +12,18 @@ import (
 )
 
 var (
-	Port = os.Getenv("LOCAL_PORT")
+	port      = os.Getenv("LOCAL_PORT")
+	ginRouter = gin.Default()
 )
 
 func StartApplication() {
 	loadEnvironmentVariables()
 
-	router := gin.Default()
-	MapRoutes(router)
+	MapRoutes(ginRouter)
 
 	store.InitializeStore()
 
-	serveAPIOnPort(router, os.Getenv("LOCAL_PORT"))
+	serveAPIOnPort(ginRouter, os.Getenv("LOCAL_PORT"))
 }
 
 func loadEnvironmentVariables() {
@@ -33,8 +33,8 @@ func loadEnvironmentVariables() {
 	}
 }
 
-func serveAPIOnPort(router *gin.Engine, Port string) {
-	err := router.Run(":" + Port)
+func serveAPIOnPort(router *gin.Engine, port string) {
+	err := router.Run(":" + port)
 	if err != nil {
 		panic(fmt.Sprintf("Failed to start the web server - Error: %v", err))
 	}
